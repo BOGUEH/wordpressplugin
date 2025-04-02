@@ -1,0 +1,14 @@
+{
+    "name": "blessingogueh/plugins",
+    "description": "blessing plugin",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "BOGUEH",
+            "email": "blesingogueh1@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

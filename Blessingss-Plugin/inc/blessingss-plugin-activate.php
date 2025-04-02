@@ -1,8 +1,8 @@
 <?php
- /**
-  * @package AlecadddPlugin
-  */
-
+/**
+ * 
+ * @package blessingssPlugin
+ */
  class BlessingssPluginActivate{
 
      public static function Activate() {

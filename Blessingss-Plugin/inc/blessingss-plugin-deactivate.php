@@ -1,7 +1,8 @@
 <?php
- /**
-  * @package AlecadddPlugin
-  */
+/**
+ * 
+ * @package blessingssPlugin
+ */
 
  class BlessingssPluginDeactivate{
 

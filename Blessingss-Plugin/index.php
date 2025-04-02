@@ -1,4 +1,2 @@
-<?php 
-//There is no knowledge that is not power
-
-
+<?php
+// Silence is golden.

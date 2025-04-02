@@ -1,108 +1,70 @@
-<?php 
-
+<?php
 /**
- * 
- * @package blessingssPlugin
+ * @package  AlecadddPlugin
  */
+/*
+Plugin Name: Blessing Ogueh
+Description: This is my first attempt on writing a custom Plugin for this amazing tutorial series.
+Version: 1.0.0
+Author: Blessing Ogueh
+License: GPLv2 or later
+Text Domain: blessing-plungin
+*/
 
- /* 
-  Plugin Name: Blessingss Plugin
-  Author: Blessing Ogueh
-  Version: 1.0.0
-  Description: This is my first plugin and i am following a tutorial by acaledd
-  License: GPLv2 or later
-
- */
-
- /*
- This program is free software; you can redistribute it and/or
+/*
+This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
 as published by the Free Software Foundation; either version 2
- of the License, or (at your option) any later version.
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
 Copyright 2005-2015 Automattic, Inc.
- */
+*/
 
+// If this file is called firectly, abort!!!
+defined( 'ABSPATH' ) or die( 'Hey, what are you doing here? You silly human!' );
 
- // if ( ! defined( 'ABSPATH' ))
- // die;
- // 
-defined( 'ABSPATH' ) or die( 'Hey, you can\t access this file, you silly human!' );
- 
-
-
-  
- class BlessingssPlugin
-{
-
-        function __construct()
-        {
-            add_action( 'init', array($this, 'custom_post_type' ));
-        }
-        
-        function register_admin_style() {
-            add_action( 'admin_enqueue_scripts', array( $this, 'enqueue') );
-        }
-
-        function activate() {
-
-            // generated a CPT
-            $this->custom_post_type();
-            // flush rewrite rules
-            flush_rewrite_rules();
-
-        }
-
-
-
-        function deactivate() {
-
-        // flush rewrite rules
-            flush_rewrite_rules();
-
-        }
-
-        function enqueue() {
-            // enqueue all our scripts
-            wp_enqueue_style('mypluginstyle', plugins_url('/assets/mystyle.css', __FILE__ ));
-            wp_enqueue_script('mypluginstyle', plugins_url('/assets/myscript.js', __FILE__ ));
-        }
-        
-        function uninstall() {
-        // delete CPT
-        //  delete - all the plugin data from the DB
-
-        }
- 
-
-        function custom_post_type() {
-            register_post_type( 'book', ['public' => true, 'label' => 'Books'] );
-        }
-
+// Require once the Composer Autoload
+if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
+	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 }
 
-if ( class_exists( 'BlessingssPlugin' ) ) 
-{
-    $blessingssPlugin = new BlessingssPlugin();
+// Define CONSTANTS
+define( 'PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+define( 'PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'PLUGIN', plugin_basename( __FILE__ ) );
 
-    $blessingssPlugin->register_admin_style();
+use Inc\Base\Activate;
+use Inc\Base\Deactivate;
 
- }
+/**
+ * The code that runs during plugin activation
+ */
+function activate_blessingss_plugin() {
+	Activate::activate();
+}
 
-  // activation
-  require_once plugin_dir_path( __FILE__ ) 'inc/blessingss-plugin-activate.php';
+/**
+ * The code that runs during plugin deactivation
+ */
+function deactivate_blessingss_plugin() {
+	Deactivate::deactivate();
+}
 
-  register_activation_hook( __FILE__, array( $blessingssPlugin, 'activate' ) );
+register_activation_hook( __FILE__, 'activate_blessingss_plugin' );
+register_deactivation_hook( __FILE__, 'deactivate_blesssingss_plugin' );
 
-   // deactivation
-   require_once plugin_dir_path( __FILE__ ) 'inc/blessingss-plugin-activate.php';
-
-  register_deactivation_hook( __FILE__, array( $blessingssPlugin, 'deactivate' ) );
-
-
- // uninstall
- 
-
-
+/**
+ * Initialize all the core classes of the plugin
+ */
+if ( class_exists( 'Inc\\Init' ) ) {
+	Inc\Init::register_services();
+}
