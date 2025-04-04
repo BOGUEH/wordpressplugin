@@ -1,14 +1,16 @@
 <?php
 /**
- * @package  BlessingssPlugin
+ * @package  AlecadddPlugin
  */
 /*
-Plugin Name: Blessing Ogueh
+Plugin Name: Alecaddd Plugin
+Plugin URI: http://alecaddd.com/plugin
 Description: This is my first attempt on writing a custom Plugin for this amazing tutorial series.
 Version: 1.0.0
-Author: Blessing Ogueh
+Author: Alessandro "Alecaddd" Castellani
+Author URI: http://alecaddd.com
 License: GPLv2 or later
-Text Domain: Blessingss-Plugin
+Text Domain: alecaddd-plugin
 */
 
 /*
@@ -40,18 +42,18 @@ if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 /**
  * The code that runs during plugin activation
  */
-function activate_blessingss_plugin() {
+function activate_alecaddd_plugin() {
 	Inc\Base\Activate::activate();
 }
-register_activation_hook( __FILE__, 'activate_blessingss_plugin' );
+register_activation_hook( __FILE__, 'activate_alecaddd_plugin' );
 
 /**
  * The code that runs during plugin deactivation
  */
-function deactivate_blessingss_plugin() {
+function deactivate_alecaddd_plugin() {
 	Inc\Base\Deactivate::deactivate();
 }
-register_deactivation_hook( __FILE__, 'deactivate_blessingss_plugin' );
+register_deactivation_hook( __FILE__, 'deactivate_alecaddd_plugin' );
 
 /**
  * Initialize all the core classes of the plugin

@@ -3,7 +3,7 @@
 /**
  * Trigger this file on Plugin uninstall
  *
- * @package  BlessingssPlugin
+ * @package  AlecadddPlugin
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {

@@ -1,6 +1,6 @@
 <?php 
 /**
- * @package  BlessingssPlugin
+ * @package  AlecadddPlugin
  */
 namespace Inc\Base;
 
