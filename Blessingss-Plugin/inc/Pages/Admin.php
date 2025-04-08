@@ -16,7 +16,7 @@ class Admin extends BaseController
 	}
 
 	public function add_admin_pages() {
-		add_menu_page( 'Blessingss Plugin', 'Blessingss', 'manage_options', 'Blessingss_plugin', array( $this, 'admin_index' ), 'dashicons-store', 110 );
+		add_menu_page( 'Blessingss Plugin', 'Blessingss', 'administrator', 'Blessingss_plugin', array( $this, 'admin_index' ), 'dashicons-store', 110 );
 	}
 
 	public function admin_index() {
